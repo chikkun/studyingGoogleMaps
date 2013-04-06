@@ -14,9 +14,7 @@ function InfoBox(opts) {
     });
   this.setMap(this.map_);
 }
-
 InfoBox.prototype = new google.maps.OverlayView();
-
 InfoBox.prototype.remove = function() {
   if (this.div_) {
     this.div_.parentNode.removeChild(this.div_);
