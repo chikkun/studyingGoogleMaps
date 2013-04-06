@@ -21,7 +21,6 @@ InfoBox.prototype.remove = function() {
     this.div_ = null;
   }
 };
-
 InfoBox.prototype.draw = function() {
   this.createElement();
   if (!this.div_) return;
@@ -34,7 +33,6 @@ InfoBox.prototype.draw = function() {
   this.div_.style.top = (pixPosition.y + this.offsetVertical_) + "px";
   this.div_.style.display = 'block';
 };
-
 InfoBox.prototype.createElement = function() {
   var panes = this.getPanes();
   var div = this.div_;
@@ -85,7 +83,6 @@ InfoBox.prototype.createElement = function() {
     // The panes have not changed, so no need to create or move the div.
   }
 }
-
 InfoBox.prototype.panMap = function() {
   var map = this.map_;
   var bounds = map.getBounds();
