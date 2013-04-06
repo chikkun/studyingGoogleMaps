@@ -60,8 +60,6 @@ $js .= <<<EOF
 }
 
 window.onload = initialize;
-</script>
-
    </script>
 EOF;
     return $js;

@@ -14,13 +14,16 @@ function InfoBox(opts) {
     });
   this.setMap(this.map_);
 }
+
 InfoBox.prototype = new google.maps.OverlayView();
+
 InfoBox.prototype.remove = function() {
   if (this.div_) {
     this.div_.parentNode.removeChild(this.div_);
     this.div_ = null;
   }
 };
+
 InfoBox.prototype.draw = function() {
   this.createElement();
   if (!this.div_) return;
@@ -33,12 +36,11 @@ InfoBox.prototype.draw = function() {
   this.div_.style.top = (pixPosition.y + this.offsetVertical_) + "px";
   this.div_.style.display = 'block';
 };
+
 InfoBox.prototype.createElement = function() {
   var panes = this.getPanes();
   var div = this.div_;
   if (!div) {
-    // This does not handle changing panes.  You can set the map to be null and
-    // then reset the map to move the div.
     div = this.div_ = document.createElement("div");
     div.style.border = "0px none";
     div.style.position = "absolute";
@@ -82,7 +84,8 @@ InfoBox.prototype.createElement = function() {
   } else {
     // The panes have not changed, so no need to create or move the div.
   }
-}
+};
+
 InfoBox.prototype.panMap = function() {
   var map = this.map_;
   var bounds = map.getBounds();
@@ -138,7 +141,7 @@ InfoBox.prototype.panMap = function() {
 
 
 function createMarker(map, latlng, msg) {
-    //�}�[�J�[���쐬
+    //マーカーを作成
     var marker = new google.maps.Marker();
     marker.setPosition(latlng);
     marker.setMap(map);
