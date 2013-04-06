@@ -1,5 +1,6 @@
 <?php
 // denn
+// chikkun
 function nobody()
 {
     $js = <<<EOF
