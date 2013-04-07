@@ -10,3 +10,5 @@ tmp*
 .*
 #.gitignoreは除外
 !/.gitignore
+
+\#*\#
