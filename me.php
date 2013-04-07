@@ -5,6 +5,7 @@ function nobody()
 
     $marks[] = array("lat" => '35.506312',
             "long" => '139.471393',
+<<<<<<< HEAD
             "name" => '知久和郎');
     $marks[] = array("lat" => '35.527506',
             "long" => '139.454253',
@@ -12,6 +13,15 @@ function nobody()
     $marks[] = array("lat" => '35.53501',
             "long" => '139.422601',
             "name" => '浜田こうじ');
+=======
+            "name" => '知久');
+    $marks[] = array("lat" => '35.527506',
+            "long" => '139.454253',
+            "name" => '伝法谷');
+    $marks[] = array("lat" => '35.53501',
+            "long" => '139.422601',
+            "name" => '浜田');
+>>>>>>> d9db8641045ccc0efb283267cd1f29ac182efae4
 
     $js = <<<EOF
    <script type="text/javascript">
@@ -172,6 +182,11 @@ EOF;
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+<<<<<<< HEAD
+=======
+      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&v=3"></script>
+    <script type="text/javascript" src="js/gmap.js"></script>
+>>>>>>> d9db8641045ccc0efb283267cd1f29ac182efae4
 
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="js/gmap.js"></script>
