@@ -1,42 +1,66 @@
 <?php
-// denn
-// chikkun
+$marks = array();
 function nobody()
 {
+
+    $marks[] = array("lat" => '35.506312',
+            "long" => '139.471393',
+            "name" => '知久和郎');
+    $marks[] = array("lat" => '35.527506',
+            "long" => '139.454253',
+            "name" => '伝法谷千代春');
+    $marks[] = array("lat" => '35.53501',
+            "long" => '139.422601',
+            "name" => '浜田こうじ');
+
     $js = <<<EOF
    <script type="text/javascript">
-      $(function(){
-        $('#test1').gmap3({
-          map:{
-            options:{
-              center:[35.506605,139.471414],
-              zoom: 15,
-              maxZoom: 19,
-              minZoom: 5
-            }
-          }});
-        $('#test1').gmap3({
-          marker:{
-            values:[
-              {latLng:[35.506605,139.471414], title:'知久の家'},
-            ],
-            options:{
-              draggable: false
-            }
-          },
-          overlay:{
-            latLng: [35.506605,139.471414],
-            options:{
-              content: '<div style="background-color: #00FF00; width:60px; font-size: 50%;height: 15px; text-align:center">坂井の家</div>',
-              offset:{
-                y:-50,
-                x:-30
-              }
-            }
-          }
-        });
-      });
-    </script>
+function initialize() {
+    //地図を表示
+    var latMin = 35.506312;
+    var latMax = 35.535027;
+    var lngMin = 139.422748;
+    var lngMax = 139.471393;
+    
+    var latc = (latMin + latMax)/2;
+    var lngc =  (lngMin + lngMax)/2;
+    var latlng = new google.maps.LatLng(latMin, lngMax);
+    var mapOpts = {
+	zoom: 18,
+	mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var mapDiv = document.getElementById("map_canvas");
+    var map = new google.maps.Map(mapDiv, mapOpts);
+EOF;
+    
+        $no = 0;
+        foreach ($marks as $m) {
+            $no++;
+            $lat = $m['lat'];
+            $long = $m['long'];
+            $name = $m['name'];
+
+            $js .= <<<EOF
+    //マーカーを作成
+    var m$no = createMarker(
+	map,
+	new google.maps.LatLng($lat, $long),
+	"<strong>$name</strong>"
+    );
+    map.setCenter(new google.maps.LatLng(latc, lngc));
+
+EOF;
+}
+$js .= <<<EOF
+    map.fitBounds(new google.maps.LatLngBounds(
+	//bottom left
+	new google.maps.LatLng(latMin, lngMin),
+	//top right
+	new google.maps.LatLng(latMax, lngMax)));
+}
+
+window.onload = initialize;
+   </script>
 EOF;
     return $js;
 }
@@ -44,7 +68,6 @@ EOF;
 $overlayStyleS = '<div style="background-color: #00FF00; width:60px; font-size: 50%;height: 15px; text-align:center">';
 $overlayStyleE = '</div>';
 //$overlayStyleS = '<div>';
-$marks = array();
 $tmp = "";
 $lats = array();
 $longs = array();
@@ -143,35 +166,26 @@ EOF;
   }
 }
 ?>
-<!DOCTYPE HTML"> 
+<!DOCTYPE HTML> 
 <html lang="ja">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&v=3"></script>
-  <script type="text/javascript" src="js/jquery/jquery-1.4.4.min.js"></script>
-    <script type="text/javascript" src="js/gmap3.js"></script>
-    <script type="text/javascript" src="js/gmap.js"></script>
 
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="js/gmap.js"></script>
     <style>
         body {
             text-align: center;
         }
 
-        .gmap3 {
-            width: 800px;
-            height: 500px;
-        }
     </style>
 
     <?php echo $js ?>
 
 </head>
 <body>
-<?php //var_dump($_POST);?>
-      <div id="test1" class="gmap3"></div>
-sakaい
     <div id="map_canvas"></div>
 
 </body>
