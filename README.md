@@ -2,7 +2,7 @@
 
 ## Install
 
-Apache and PHP are required.
+Apache and PHP are required. But others aren't needed.
 
 ##Usage
 
