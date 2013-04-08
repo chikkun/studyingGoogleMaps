@@ -45,11 +45,6 @@ InfoBox.prototype.createElement = function() {
     div.style.border = "0px none";
     div.style.position = "absolute";
     div.style.background = "url('fuki.gif')";
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> d9db8641045ccc0efb283267cd1f29ac182efae4
     div.style.width = this.width_ + "px";
     div.style.height = this.height_ + "px";
     var contentDiv = document.createElement("div");
@@ -65,7 +60,6 @@ InfoBox.prototype.createElement = function() {
 
     var topDiv = document.createElement("div");
     topDiv.style.textAlign = "right";
-<<<<<<< HEAD
     topDiv.style.position = "absolute";
     var closeImg = document.createElement("img");
 
@@ -76,14 +70,6 @@ InfoBox.prototype.createElement = function() {
     closeImg.style.cursor = "pointer";
     closeImg.style.top = "-20px";
     closeImg.style.left = "-10px";
-
-=======
-    var closeImg = document.createElement("img");
-    closeImg.style.width = "32px";
-    closeImg.style.height = "32px";
-    closeImg.style.cursor = "pointer";
-    closeImg.src = "closebigger.gif";
->>>>>>> d9db8641045ccc0efb283267cd1f29ac182efae4
     topDiv.appendChild(closeImg);
 
     function removeInfoBox(ib) {
@@ -160,10 +146,7 @@ InfoBox.prototype.panMap = function() {
 
 
 function createMarker(map, latlng, msg) {
-<<<<<<< HEAD
-=======
     //マーカーを作成
->>>>>>> d9db8641045ccc0efb283267cd1f29ac182efae4
     var marker = new google.maps.Marker();
     marker.setPosition(latlng);
     marker.setMap(map);
